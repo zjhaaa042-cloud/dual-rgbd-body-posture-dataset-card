@@ -1,0 +1,28 @@
+subjects/
+└── <subject_id>/                      # S + 4 位十进制序号
+    ├── session_manifest.json          # 受试者级登记、8 视角进度、人体测量与完成状态
+    ├── .staging/                      # 采集期临时区，交付时为空
+    └── angles/
+        └── angle_<yaw>_<direction>/   # 共 8 个，见映射表
+            └── capture_<nn>_<UTC>/    # 一次双机近同步采集
+                ├── capture_manifest.json
+                ├── commit.json
+                ├── camera_gemini_336l/            # camera_code = C336L
+                │   ├── rgb_color/          frame_0N.png
+                │   ├── depth_raw_uint16/   frame_0N.png
+                │   ├── depth_raw_npy/      frame_0N.npy
+                │   ├── depth_raw_color/    frame_0N.png
+                │   ├── depth_aligned_uint16/ frame_0N.png
+                │   ├── depth_aligned_npy/  frame_0N.npy
+                │   ├── depth_aligned_color/ frame_0N.png
+                │   └── pointcloud_color_xyz_mm/ frame_0N.ply
+                └── camera_realsense_d435i/        # camera_code = CD435I
+                    └── (同上 8 个模态目录)
+
+# 说明
+#   <subject_id>   : S0005 形式的编号；本仓库不列出实际编号清单
+#   angle_<yaw>    : 000 / 045 / 090 / 135 / 180 / 225 / 270 / 315
+#   <direction>    : front / front_right / right / back_right / back / back_left / left / front_left
+#   capture_<nn>   : 会话序号，两位十进制（正常流程为 01）
+#   <UTC>          : UTC 时间戳，基本式 ISO 8601，如 20260101T000000000000Z
+#   frame_0N       : frame_01 .. frame_05
