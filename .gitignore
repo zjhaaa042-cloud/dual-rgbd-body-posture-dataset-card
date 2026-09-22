@@ -1,0 +1,33 @@
+# ---- 数据本体一律不入库 ----
+subjects/
+.staging/
+**/.staging/
+
+# ---- 元数据清单（含受试者数值与设备标识）----
+**/session_manifest.json
+**/capture_manifest.json
+**/commit.json
+
+# ---- 数据文件类型 ----
+*.png
+*.npy
+*.npz
+*.ply
+*.pcd
+*.obj
+*.bag
+*.db3
+*.nii
+*.nii.gz
+
+# ---- 文档素材例外（如需发布示意图）----
+!assets/*.png
+!assets/*.jpg
+!assets/*.svg
+
+# ---- 系统与编辑器 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
